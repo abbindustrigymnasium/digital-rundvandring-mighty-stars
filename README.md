@@ -9,7 +9,7 @@
 	Idé: Gör ditt eget konstverk på en stor öppen yta. 
 ### ~~Gräva sig in i graven~~
 	Plats: Anundshög
-### __(<u>Bygga vikingaskepp<u>)__
+### *Bygga vikingaskepp*
 	Plats: Skeppssättning Anundshög
 	Idé: Leta efter delar runt om i området och bygg ett vikingaskepp vid skeppssättningen
 
