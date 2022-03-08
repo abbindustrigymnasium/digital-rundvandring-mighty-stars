@@ -8,16 +8,16 @@ public class ObjectLock : MonoBehaviour
     public Vector3 shipLockPosition;
     public Vector3 lockBoxSize;
     public GameObject lockedGameObject;
+    public GameObject lockedGhostGameObject;
     public GameObject[] unlockedGameObjects;
     public GameObject[] lockedGameObjects;
+    public GameObject[] lockedGhostGameObjects;
 
     // Start is called before the first frame update
     void Start()
     {
-        //lockedGameObject.transform.position = shipLockPosition;
-        checkComponent(unlockedGameObjects[0], lockedGameObjects[0]);
-        //Instantiate(shipPrefab, shipLockPosition, Quaternion.identity);
-
+        lockedGameObject.transform.position = shipLockPosition;
+        lockedGhostGameObject.transform.position = shipLockPosition;
     }
 
     // Update is called once per frame
@@ -25,18 +25,19 @@ public class ObjectLock : MonoBehaviour
     {
         for (int i = 0; i < unlockedGameObjects.Length; i++) {
             if (unlockedGameObjects[i] != null) {
-                checkComponent(unlockedGameObjects[i], lockedGameObjects[i]);
+                checkComponent(unlockedGameObjects[i], lockedGameObjects[i], lockedGhostGameObjects[i]);
             }
         }
     }
 
-    void checkComponent(GameObject unlockedGameObject, GameObject lockedGameObject) {
+    void checkComponent(GameObject unlockedGameObject, GameObject lockedGameObject, GameObject lockedGhostGameObject) {
         Vector3 objectPosition = unlockedGameObject.transform.position;
         if (objectPosition.x > shipLockPosition.x - lockBoxSize.x && objectPosition.x < shipLockPosition.x + lockBoxSize.x) {
             if (objectPosition.y > shipLockPosition.y - lockBoxSize.y && objectPosition.y < shipLockPosition.y + lockBoxSize.y) {
                 if (objectPosition.z > shipLockPosition.z - lockBoxSize.z && objectPosition.z < shipLockPosition.z + lockBoxSize.z) {
-                    Debug.Log("WITHIN AREA!!");
+                    Debug.Log("New Locked Object", unlockedGameObject);
                     Destroy(unlockedGameObject);
+                    lockedGhostGameObject.GetComponent<MeshRenderer>().enabled = false;
                     lockedGameObject.GetComponent<MeshRenderer>().enabled = true;
                 }
             }
