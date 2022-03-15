@@ -13,7 +13,11 @@ public class Select : MonoBehaviour
 
     public GameObject camera;
 
-    public void select (){
+    private bool heldDown;
+
+    void Update(){
+    if (heldDown){
+
 
         int objectLayer = 1 << 3;
         objectLayer = ~objectLayer;
@@ -29,7 +33,6 @@ public class Select : MonoBehaviour
         if(Physics.Raycast(camera.transform.position, rot, out objectHit)){
             Debug.Log(objectHit.transform);
             hitPosition = camera.transform.position + camera.transform.forward * 1;
-            hitPosition.y -= 0.25f;
             Debug.Log(hitPosition);
             Debug.Log(camera.transform.position);
             Debug.Log(camera.transform.forward);    
@@ -39,10 +42,17 @@ public class Select : MonoBehaviour
             }
         }
         Debug.DrawRay(camera.transform.position, rot*10,Color.red, 3.0f);
+
+}
+    }
+    public void select (){
+        heldDown = true;
+Debug.Log("selected");
+
     }
     public void deSelect(){
         StartCoroutine(Wait(0.5f));
-        
+        heldDown = false;
         Debug.Log("deselected");
     }
 
@@ -50,7 +60,6 @@ public class Select : MonoBehaviour
     {   
         yield return new WaitForSeconds(time);
         selectedObject = null;
-        Debug.Log("deselected");
 
     }
 

@@ -18,7 +18,7 @@ public class Draged : MonoBehaviour
         {
             Debug.Log("Selected");
             targetPos = mainCamera.GetComponent<Select>().hitPosition;
-            transform.position = targetPos;
+            transform.position = Vector3.Lerp(transform.position, targetPos, 0.5f * Time.deltaTime);
 
         }
     }
