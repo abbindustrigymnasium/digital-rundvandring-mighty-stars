@@ -34,7 +34,7 @@ public class Select : MonoBehaviour
         if(Physics.Raycast(camera.transform.position, rot, out objectHit)){
             Debug.Log(objectHit.transform);
             hitPosition = camera.transform.position + camera.transform.forward * 1;
-            hitRotation = camera.transform.eulerAngles + new Vector3(0,90,0);
+            hitRotation = camera.transform.localEulerAngles + new Vector3(0,90,0);
             Debug.Log(hitPosition);
             Debug.Log(camera.transform.position);
             Debug.Log(camera.transform.forward);    

@@ -12,6 +12,8 @@ public class ObjectLock : MonoBehaviour
     public GameObject[] unlockedGameObjects;
     public GameObject[] lockedGameObjects;
     public GameObject[] lockedGhostGameObjects;
+    public GameObject endScreen;
+    private int counter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class ObjectLock : MonoBehaviour
                 checkComponent(unlockedGameObjects[i], lockedGameObjects[i], lockedGhostGameObjects[i]);
             }
         }
+       
     }
 
     void checkComponent(GameObject unlockedGameObject, GameObject lockedGameObject, GameObject lockedGhostGameObject) {
@@ -35,12 +38,20 @@ public class ObjectLock : MonoBehaviour
         if (objectPosition.x > shipLockPosition.x - lockBoxSize.x && objectPosition.x < shipLockPosition.x + lockBoxSize.x) {
             if (objectPosition.y > shipLockPosition.y - lockBoxSize.y && objectPosition.y < shipLockPosition.y + lockBoxSize.y) {
                 if (objectPosition.z > shipLockPosition.z - lockBoxSize.z && objectPosition.z < shipLockPosition.z + lockBoxSize.z) {
+                    counter++;
                     Debug.Log("New Locked Object", unlockedGameObject);
                     Destroy(unlockedGameObject);
                     lockedGhostGameObject.GetComponent<MeshRenderer>().enabled = false;
                     lockedGameObject.GetComponent<MeshRenderer>().enabled = true;
+                    if (counter == 10){
+                        endScreen.SetActive(true);
+                    }
                 }
             }
         }
+    }
+    public void disableEndScreen(){
+        endScreen.SetActive(false);
+
     }
 }
