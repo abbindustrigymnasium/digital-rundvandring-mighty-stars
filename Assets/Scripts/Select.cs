@@ -29,7 +29,7 @@ public class Select : MonoBehaviour
         RaycastHit objectHit;
         RaycastHit planeHit;
 
-        var rot = transform.TransformDirection(Vector3.forward) * 40;
+        var rot = transform.TransformDirection(Vector3.forward) * 80;
         Debug.Log(Physics.Raycast(camera.transform.position, rot));
         if(Physics.Raycast(camera.transform.position, rot, out objectHit)){
             Debug.Log(objectHit.transform);

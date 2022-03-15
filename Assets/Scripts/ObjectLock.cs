@@ -43,7 +43,7 @@ public class ObjectLock : MonoBehaviour
                     Destroy(unlockedGameObject);
                     lockedGhostGameObject.GetComponent<MeshRenderer>().enabled = false;
                     lockedGameObject.GetComponent<MeshRenderer>().enabled = true;
-                    if (counter == 10){
+                    if (counter == 9){
                         endScreen.SetActive(true);
                     }
                 }
