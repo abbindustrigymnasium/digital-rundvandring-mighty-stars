@@ -431,7 +431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354514515}
   m_LocalRotation: {x: 0.08548165, y: -0.36902952, z: -0.03410853, w: 0.9248496}
-  m_LocalPosition: {x: -0.17, y: 0.3, z: -2.42}
+  m_LocalPosition: {x: -0.17, y: 1.5, z: -2.295}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 711197040}
   - component: {fileID: 711197039}
   - component: {fileID: 711197038}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AR Default Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2992,7 +2992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2348765022312522509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 136, y: -422, z: -250}
+  m_LocalPosition: {x: 212, y: -517, z: -250}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3354,7 +3354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5163492719144870416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -305, y: -440, z: -410}
+  m_LocalPosition: {x: -305, y: -440, z: -671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
