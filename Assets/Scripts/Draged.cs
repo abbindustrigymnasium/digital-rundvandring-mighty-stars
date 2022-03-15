@@ -21,7 +21,9 @@ public class Draged : MonoBehaviour
             targetPos = mainCamera.GetComponent<Select>().hitPosition;
             targetRot = mainCamera.GetComponent<Select>().hitRotation;
             transform.position = Vector3.Lerp(transform.position, targetPos, 10f * Time.deltaTime);
-            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, targetRot, 10f * Time.deltaTime);
+
+
+            transform.eulerAngles = new Vector3(-90,0,targetRot.z-30);
 
         }
     }
