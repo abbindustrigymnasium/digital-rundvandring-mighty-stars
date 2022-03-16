@@ -13,6 +13,7 @@ public class ObjectLock : MonoBehaviour
     public GameObject[] lockedGameObjects;
     public GameObject[] lockedGhostGameObjects;
     public GameObject endScreen;
+    public GameObject restartButton;
     private int counter = 0;
 
     // Start is called before the first frame update
@@ -45,6 +46,7 @@ public class ObjectLock : MonoBehaviour
                     lockedGameObject.GetComponent<MeshRenderer>().enabled = true;
                     if (counter == 9){
                         endScreen.SetActive(true);
+                        restartButton.SetActive(true);
                     }
                 }
             }
