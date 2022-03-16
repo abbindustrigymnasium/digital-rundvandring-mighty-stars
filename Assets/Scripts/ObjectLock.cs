@@ -14,6 +14,10 @@ public class ObjectLock : MonoBehaviour
     public GameObject[] lockedGhostGameObjects;
     public GameObject endScreen;
     public GameObject restartButton;
+    public AudioSource audioSource;
+    public AudioClip wining;
+    public AudioClip correct;
+
     private int counter = 0;
 
     // Start is called before the first frame update
@@ -44,7 +48,12 @@ public class ObjectLock : MonoBehaviour
                     Destroy(unlockedGameObject);
                     lockedGhostGameObject.GetComponent<MeshRenderer>().enabled = false;
                     lockedGameObject.GetComponent<MeshRenderer>().enabled = true;
+                    if (counter != 9){
+
+                        audioSource.PlayOneShot(correct, 0.5f);
+                    }
                     if (counter == 9){
+                        audioSource.PlayOneShot(wining, 0.5f);
                         endScreen.SetActive(true);
                         restartButton.SetActive(true);
                     }
