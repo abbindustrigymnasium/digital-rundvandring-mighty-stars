@@ -8,7 +8,7 @@ public class Draged : MonoBehaviour
     public GameObject self;
     public GameObject compare;
     public GameObject mainCamera;
-    private Vector3 targetRot;
+    private Transform targetRot;
     private Vector3 targetPos;
 
     // Update is called once per frame
@@ -20,7 +20,8 @@ public class Draged : MonoBehaviour
             Debug.Log("Selected");
             targetPos = mainCamera.GetComponent<Select>().hitPosition;
             targetRot = mainCamera.GetComponent<Select>().hitRotation;
-            transform.eulerAngles = new Vector3(-90,0,targetRot.z-30);
+            transform.forward = targetRot.forward*-1;
+            transform.Rotate(270,0,0);
             transform.position = Vector3.Lerp(transform.position, targetPos, 10f * Time.deltaTime);
 
 

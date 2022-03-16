@@ -8,7 +8,7 @@ public class Select : MonoBehaviour
 
     public Collider hitObject;
     public Vector3 hitPosition;
-    public Vector3 hitRotation;
+    public Transform hitRotation;
     public GameObject selectedObject;
     public Transform AROriginTransform;
 
@@ -29,12 +29,12 @@ public class Select : MonoBehaviour
         RaycastHit objectHit;
         RaycastHit planeHit;
 
-        var rot = transform.TransformDirection(Vector3.forward) * 80;
+        var rot = transform.TransformDirection(Vector3.forward) * 40;
         Debug.Log(Physics.Raycast(camera.transform.position, rot));
         if(Physics.Raycast(camera.transform.position, rot, out objectHit)){
             Debug.Log(objectHit.transform);
-            hitPosition = camera.transform.position + camera.transform.forward * 1;
-            hitRotation = camera.transform.localEulerAngles + new Vector3(0,90,0);
+            hitPosition = camera.transform.position + camera.transform.forward * 2;
+            hitRotation = camera.transform;
             Debug.Log(hitPosition);
             Debug.Log(camera.transform.position);
             Debug.Log(camera.transform.forward);    
